@@ -5142,7 +5142,7 @@ lemma thetaLift_zero (T : ℝ) :
   exact isCoveringMap_exp.liftPath_zero (chiPath T) (theta0 T) (liftPath_γ0 T)
 
   -- ============================================================
-  -- T6d: 相位对齐 (预言/召唤的对称映射) — 2·Δθ_ζ = Δθ_χ (2026-08-21)
+  -- T6d: 相位对齐 (起点-终点对称映射) — 2·Δθ_ζ = Δθ_χ (2026-08-21)
   -- u²=χ (T5) ⟹ exp(2θ_ζ)=exp(θ_χ) ⟹ 2θ_ζ-θ_χ ∈ expKernel 常数 ⟹ 端点差
   -- 无零点区间上直接等式, 不需要迭代逼近
   -- ============================================================
@@ -5317,12 +5317,12 @@ instance expKernel_discrete : DiscreteTopology {z : ℂ // z ∈ expKernel} := b
       Metric.mem_ball_self Real.pi_pos
     simpa [dist_eq_norm] using hself
 
-/-- **相位对齐 (预言/召唤的对称映射)**: 无零点区间 [0,T] 上,
+/-- **相位对齐 (起点-终点对称映射)**: 无零点区间 [0,T] 上,
     u² = χ (T5) ⟹ exp(2θ_ζ) = exp(θ_χ) ⟹ 2θ_ζ - θ_χ ∈ expKernel 常数 ⟹
     2·(θ_ζ(T) - θ_ζ(0)) = θ_χ(T) - θ_χ(0)。
     起点 (显式 χ 相位) 与终点 (θ_ζ 端点差) 之间的映射相位关系直接锁定,
     不需要迭代逼近。 
-English: Phase alignment (the prediction/summoning symmetric map): on the zero-free interval [0,T], u² = χ (T5) ⟹ exp(2θ_ζ) = exp(θ_χ) ⟹ 2θ_ζ - θ_χ ∈ expKernel constant ⟹ 2·(θ_ζ(T) - θ_ζ(0)) = θ_χ(T) - θ_χ(0). The mapped phase relation between the start (explicit χ phase) and the end (θ_ζ endpoint difference) is locked directly, no iterative approximation. -/
+English: Phase alignment (the start–end symmetric map): on the zero-free interval [0,T], u² = χ (T5) ⟹ exp(2θ_ζ) = exp(θ_χ) ⟹ 2θ_ζ - θ_χ ∈ expKernel constant ⟹ 2·(θ_ζ(T) - θ_ζ(0)) = θ_χ(T) - θ_χ(0). The mapped phase relation between the start (explicit χ phase) and the end (θ_ζ endpoint difference) is locked directly, no iterative approximation. -/
 theorem phase_align_two_zeta_lift_eq_chi_lift (T : ℝ)
     (hz : ∀ s : unitInterval, riemannZeta ((1 / 2 : ℂ) + (T * s.1 : ℝ) * Complex.I) ≠ 0) :
     2 * (uLift T hz 1 - uLift T hz 0) = thetaLift T 1 - thetaLift T 0 := by
@@ -5408,7 +5408,7 @@ theorem zeta_lift_half_chi_lift_pi_int (T : ℝ)
     _ = (n : ℂ) * (↑Real.pi * Complex.I) := by ring
 
   -- ============================================================
-  -- T6f: 预言学残差方法 0pat 化 — 误差测量序列 (2026-08-21)
+  -- T6f: 残差预测方法 0pat 化 — 误差测量序列 (2026-08-21)
   -- 比率恒定 e(2n)/e(n) = 2^{1-s}, 测量一次推全部, 提前量反解
   -- log = e⁻¹ (有限↔无限逆桥), 残差控制全快路径
   -- ============================================================

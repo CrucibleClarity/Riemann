@@ -5,7 +5,7 @@ import Mathlib.Analysis.SpecialFunctions.Complex.Log
 import Mathlib.Topology.Instances.Discrete
 
 /-!
-# T6d: 相位对齐 — 无零点区间上 2·Δθ_ζ = Δθ_χ (预言/召唤的对称映射)
+# T6d: 相位对齐 — 无零点区间上 2·Δθ_ζ = Δθ_χ (起点-终点对称映射)
 
 相位调制存在映射相位关系: u² = χ (T5, 精确等式, u = ζ/|ζ|)。
 在无零点区间 [0,T] 上 u 连续非零, 经覆盖映射 exp 提升为 θ_ζ (uLift);
@@ -13,7 +13,7 @@ import Mathlib.Topology.Instances.Discrete
     f = 2θ_ζ - θ_χ 的像 ⊆ expKernel = exp⁻¹{1} (离散)
     f 连续 ⟹ f 常数 (IsPreconnected.constant) ⟹
     **2·(θ_ζ(T) - θ_ζ(0)) = θ_χ(T) - θ_χ(0)** (端点差)
-这是"召唤"的对称映射: 起点 (显式 χ 相位) 与终点 (θ_ζ 端点差) 之间
+这是起点与终点的对称映射: 显式 χ 相位与 θ_ζ 端点差之间
 的映射相位关系直接锁定, 不需要迭代逼近。翻转 (跨零点) 是 2π 整数层
 差, 见 T6c 的计数结构。
 
@@ -520,12 +520,12 @@ instance expKernel_discrete : DiscreteTopology {z : ℂ // z ∈ expKernel} := b
       Metric.mem_ball_self Real.pi_pos
     simpa [dist_eq_norm] using hself
 
-/-- **相位对齐 (预言/召唤的对称映射)**: 无零点区间 [0,T] 上,
+/-- **相位对齐 (起点-终点对称映射)**: 无零点区间 [0,T] 上,
     u² = χ (T5) ⟹ exp(2θ_ζ) = exp(θ_χ) ⟹ 2θ_ζ - θ_χ ∈ expKernel 常数 ⟹
     2·(θ_ζ(T) - θ_ζ(0)) = θ_χ(T) - θ_χ(0)。
     起点 (显式 χ 相位) 与终点 (θ_ζ 端点差) 之间的映射相位关系直接锁定,
     不需要迭代逼近。 
-English: **Phase alignment (symmetric map of prophecy/summoning)**: on a zero-free interval [0,T], u² = χ (T5) ⟹ exp(2θ_ζ) = exp(θ_χ) ⟹ 2θ_ζ - θ_χ ∈ expKernel constant ⟹ 2·(θ_ζ(T) - θ_ζ(0)) = θ_χ(T) - θ_χ(0). The mapped-phase relation between basepoint (explicit χ phase) and endpoint (θ_ζ endpoint difference) is locked directly; no iterative approximation. -/
+English: **Phase alignment (the start–end symmetric map)**: on a zero-free interval [0,T], u² = χ (T5) ⟹ exp(2θ_ζ) = exp(θ_χ) ⟹ 2θ_ζ - θ_χ ∈ expKernel constant ⟹ 2·(θ_ζ(T) - θ_ζ(0)) = θ_χ(T) - θ_χ(0). The mapped-phase relation between basepoint (explicit χ phase) and endpoint (θ_ζ endpoint difference) is locked directly; no iterative approximation. -/
 theorem phase_align_two_zeta_lift_eq_chi_lift (T : ℝ)
     (hz : ∀ s : unitInterval, riemannZeta ((1 / 2 : ℂ) + (T * s.1 : ℝ) * Complex.I) ≠ 0) :
     2 * (uLift T hz 1 - uLift T hz 0) = thetaLift T 1 - thetaLift T 0 := by

@@ -6,9 +6,9 @@ import Mathlib.Tactic.FieldSimp
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 
 /-!
-# T6f: 预言学残差方法 0pat 化 — 误差测量序列 (RulerErrorSeq 的 mathlib-only 版)
+# T6f: 残差预测方法 0pat 化 — 误差测量序列 (RulerErrorSeq 的 mathlib-only 版)
 
-pat 预言学 (worn_zhe_yue_prophecy.md §8.2) 已解决残差方法:
+pat 残差预测 (内部笔记 §8.2) 已解决残差方法:
 - 误差测量序列 e(n) = n^{1-s}/(s-1) (多项式级数截断误差模型)
 - 核心比率定理: e(2n)/e(n) = 2^{1-s} (每层比率恒定 ⟹ 测量一次推全部)
 - 误差单调递减: n 加倍 ⟹ 误差 ÷ 2^{s-1}
